@@ -203,23 +203,22 @@ const Index = () => {
           <p className="text-muted-foreground text-center mb-16 max-w-xl mx-auto">
             O que dizem sobre o meu trabalho
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((t, i) => (
-              <div key={i} className="p-6 rounded-xl bg-card border border-border card-hover">
-                <div className="flex items-center gap-4 mb-4">
+              <div key={i} className="rounded-xl bg-card border border-border card-hover overflow-hidden">
+                <div className="w-full overflow-hidden border-b border-border">
                   <img
                     src={t.image}
-                    alt={t.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
+                    alt={`Avaliação - ${t.project}`}
+                    className="w-full h-auto object-contain"
                   />
-                  <div>
-                    <p className="font-semibold text-foreground">{t.name}</p>
-                    <p className="text-sm text-muted-foreground">{t.date}</p>
-                  </div>
                 </div>
-                <p className="text-sm text-primary mb-2 font-medium">{t.project}</p>
-                <StarRating rating={t.rating} />
-                <p className="mt-3 text-muted-foreground italic">"{t.text}"</p>
+                <div className="p-5">
+                  <p className="text-primary font-semibold mb-1">{t.project}</p>
+                  <StarRating rating={t.rating} />
+                  <p className="mt-2 text-muted-foreground italic text-sm">"{t.text}"</p>
+                  <p className="text-xs text-muted-foreground mt-2">{t.date}</p>
+                </div>
               </div>
             ))}
           </div>
