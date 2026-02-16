@@ -26,12 +26,13 @@ const services = [
   },
   {
     icon: Bot,
-    title: "Soluções com IA",
+    title: "Soluções com IA e Automação",
     items: [
       "Bots de atendimento automatizado",
       "Sistemas de resposta inteligente",
       "Plataformas com IA personalizada",
-      "Automação de processos",
+      "Automação de processos e fluxos de trabalho",
+      "Integração de ferramentas e APIs automatizadas",
     ],
   },
   {
@@ -79,6 +80,15 @@ const testimonials = [
     text: "Excelente profissional, entregou no prazo e com qualidade!",
     image: client2,
   },
+];
+
+const anonymousReviews = [
+  { text: "Resolveu meu problema em tempo recorde. Super recomendo!", rating: 5 },
+  { text: "Profissional dedicado, fez além do que pedi.", rating: 5 },
+  { text: "Ótima comunicação e resultado impecável.", rating: 5 },
+  { text: "Automatizou todo meu processo, economizei horas por dia.", rating: 5 },
+  { text: "Traduções perfeitas, nunca precisei de correção.", rating: 5 },
+  { text: "Criou um sistema completo do zero, funcionando perfeitamente.", rating: 5 },
 ];
 
 const StarRating = ({ rating }: { rating: number }) => (
@@ -219,6 +229,15 @@ const Index = () => {
                   <p className="mt-2 text-muted-foreground italic text-sm">"{t.text}"</p>
                   <p className="text-xs text-muted-foreground mt-2">{t.date}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+            {anonymousReviews.map((r, i) => (
+              <div key={i} className="p-5 rounded-xl bg-card border border-border card-hover">
+                <StarRating rating={r.rating} />
+                <p className="mt-3 text-muted-foreground italic text-sm">"{r.text}"</p>
+                <p className="mt-2 text-xs text-muted-foreground">— Cliente anônimo</p>
               </div>
             ))}
           </div>
